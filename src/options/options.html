@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<title>TorrentSpy</title>
+	<link rel="stylesheet" type="text/css" href="options.css">
+	<link rel="stylesheet" href="pepper-grinder/jquery-ui-1.10.3.custom.min.css" />
+  
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui.js"></script>
+
+	<script type="text/javascript" src="options.js"></script>
+	<script type="text/javascript" src="options_filters.js"></script>
+	<script type="text/javascript" src="options_pages.js"></script>
+	<script type="text/javascript" src="options_objects.js"></script>
+	<script type="text/javascript" src="options_settings.js"></script>
+</head>
+
+<body>
+	<h1>TorrentSpy v1.00</h1>
+
+    <form id="donation" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="LTPU98NRRXZTY"> 
+		<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> 
+		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+	
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">Filters</a></li>
+			<li><a href="#tabs-2">Object Pages</a></li>
+			<li><a href="#tabs-3">Objects</a></li>
+			<li><a href="#tabs-4">Settings</a></li>
+		</ul>
+		
+		<!-- Filters -->
+		<div id="tabs-1">
+			<h2>Filters (<span id="span_filter_count">0</span>)</h2>
+            
+			<div id="div_insert_filter">
+				<div id="div_filter_title" class="b_white"><input id="filter_title" type="text" placeholder="Filter Name" /></div>
+				<div id="div_filter_regex" class="b_white"><input id="filter_regex" type="text" placeholder="Title Regex (e.g., xvid|game ?_?-?of ?_?-?thrones)" /></div>
+				<div id="btn_add_filter" class="b_white"><a href="#">Add Filter</a></div>
+			</div>
+			
+			<div id="filter_list"></div>
+	
+			<div style="margin-top: 10px;">
+				<table><tr><td>
+				<div class="b_white"><input type="file" id="file"></div>
+				</td><td width="1">
+				<div class="b_white" id="btn_import"><a href="#">Import</a></div>
+				</td><td width="1">
+				<div class="b_white" id="btn_export"><a href="#">Export</a></div>
+				</td></tr></table>
+			</div>
+		</div>
+		
+		<!-- Object Pages -->
+		<div id="tabs-2">
+			<div>
+				<h2>Source (<span id="source_count"></span>)</h2>
+				<div id="source_list"></div>
+			</div>
+		
+			<div>
+				<h2>Add Source</h2>
+				<div>
+					<input id="source_url" type="text" value="http://eztv.it" placeholder="Page URL" /> 
+					<select id="source_url_ctype">
+					  <option value="HTML">HTML</option>
+					  <option value="RSS">RSS</option>
+					  <option value="XML">XML</option>
+					  <option value="JSON">JSON</option>
+					</select>
+					<div id="btn_check_source" class="button">Check Source</div>
+				</div>
+				<div id="pattern">Insert a Page URL and click "Check Source" to try to learn a new Object Source.</div>
+				<div id="btn_add_source" class="button">Add Source</div>
+			</div>
+			
+			<div>
+				<h2>Advanced Learning Options</h2>
+			</div>
+		</div>
+		
+		<!-- Objects -->
+		<div id="tabs-3">
+			
+		</div>
+		
+		<!-- Settings -->
+		<div id="tabs-4">
+			<h2>Options</h2>
+			<div>
+				<h3>Notifications</h3>
+				<div><input id="sound_notification" name="sound_notification" type="checkbox" value="" /> Play sound notification when new objects are found</div>
+			</div>
+		</div>
+	</div>
+
+	<p>
+	<div>Please send your feedback and bug related information to <a href="mailto:torrentspy@mobaton.com">dataspy@mobaton.com</a> or through the Google Chrome Feedback service.</div>
+	</p>
+
+</body>
+</html>
+

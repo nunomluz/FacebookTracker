@@ -1,0 +1,22 @@
+{
+  "name": "facebookapp-chrome",
+  "description": "Facebook Monitor Chrome Extension",
+  "version": "0.0.1",
+  "private": true,
+  "contributors": [{
+    "name": "Nuno Luz",
+    "email": "nuno.maluz@gmail.com"
+  }],
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "gulp": "~3.9.0",
+    "del": "~1.2.0",
+    "gulp-concat": "~2.6.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-sass": "~2.0.4",
+    "node-sass": "~3.2.0",
+    "merge-stream": "~1.0.0"
+  }
+}

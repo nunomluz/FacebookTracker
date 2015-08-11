@@ -1,0 +1,40 @@
+{
+  "name": "FacebookTracker",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Facebook Tracker",
+  "icons": { 
+  	"16": "img/icon16.png",
+ 	"48": "img/icon48.png",
+	"96": "img/icon96.png",
+ 	"128": "img/icon128.png" 
+  },
+		  
+  "browser_action": {
+    "default_icon": "img/icon19.png"
+  },
+  
+  "background": { "page": "background.html" },
+  
+  "permissions": [
+	"http://*.facebook/*",
+	"https://*.facebook/*",
+    "*://fbtrack.herokuapp.com/*",
+	"unlimitedStorage", "tabs"
+  ],
+  
+  "content_scripts": [
+    {
+        "run_at": "document_start",
+        "matches": ["*://www.facebook.com/*"],
+        "js": ["libs/moment.min.js", "cs.js"],
+        "all_frames": true
+    }
+  ],
+  
+  "externally_connectable": {
+    "matches": ["*://fbtrack.herokuapp.com/*"]
+  },
+  
+  "content_security_policy": "script-src 'self' https://fbtrack.herokuapp.com; object-src 'self'"
+}
