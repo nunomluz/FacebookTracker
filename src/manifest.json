@@ -20,7 +20,7 @@
 	"http://*.facebook/*",
 	"https://*.facebook/*",
     "*://fbtrack.herokuapp.com/*",
-	"unlimitedStorage", "tabs"
+	"unlimitedStorage", "tabs", "notifications"
   ],
   
   "content_scripts": [
