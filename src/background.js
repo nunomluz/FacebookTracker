@@ -104,7 +104,6 @@ var FBTrackExtension = (function() {
             } else {
                 Rest.updateTimelog(cache).done(function(resp) {
                     console.log('Cached timelogs sent to server!');
-                    //console.log(resp);
                     localStorage.setItem(t._CACHE_PERIOD_KEY, '[]');
                 }).fail(function(resp, msg, err) {
                     console.error('Unable to create cached timelogs! Not removed from cache...', err);
@@ -118,7 +117,6 @@ var FBTrackExtension = (function() {
                 var current = JSON.parse(localStorage.getItem(t._CURRENT_PERIOD_KEY));
                 Rest.updateTimelog(current).done(function(resp) {
                     console.log('Current timelog sent to server!');
-                    //console.log(resp);
                     current = JSON.parse(localStorage.getItem(t._CURRENT_PERIOD_KEY));
                     current.timelog_id = JSON.parse(resp)[0].timelog_id;
                     localStorage.setItem(t._CURRENT_PERIOD_KEY, JSON.stringify(current));
@@ -266,7 +264,7 @@ var FBTrackExtension = (function() {
     };
 })();
 
-var Rest = FBTrackClient('MTYxMjUxNDEwYmY5ZGEwM2RhM2Q2YTk2Yjg3YWQyYzNGQlRSQUNLX0NIUk9NRQ==');   // API Key
+var Rest = FBTrackClient('{{FB_API_KEY}}');   // API key (replaced during deployment)
 $(document).ready(function() {
 	FBTrackExtension.init();
 });

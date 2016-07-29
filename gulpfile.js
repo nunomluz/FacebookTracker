@@ -1,9 +1,11 @@
+require('dotenv').config();
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var del = require('del');
 var merge = require('merge-stream');
+var replace = require('gulp-replace');
 
 var tasks = [];
 var distConfig = {
@@ -38,8 +40,8 @@ var srcConfig = {
 };
 
 // CLEAN ALL
-gulp.task('cleanDist', function(cb) {
-    del([distConfig.root], {force: true}, cb);
+gulp.task('cleanDist', function() {
+    del.sync([distConfig.root], {force: true});
 });
 
 // COPY BUILD TASK
@@ -55,8 +57,12 @@ gulp.task('buildCopy', ['cleanDist'], function() {
 // SCRIPT CONCAT + UGLIFY BUILD TASK
 gulp.task('buildScripts', ['cleanDist'], function() {
     var streams = [];
-	streams.push(gulp
+    streams.push(gulp
         .src(srcConfig.bgScriptPaths)
+        .pipe(replace(/\{\{[^\}]+\}\}/, function(search) {
+            console.log(search.substring(2, search.length-2));
+            return process.env[search.substring(2, search.length-2)];
+        }))
         .pipe(uglify())
         .pipe(concat(distConfig.bgScriptFile))
         .pipe(gulp.dest(distConfig.root))
